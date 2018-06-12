@@ -4,12 +4,29 @@
 
 prepare(){ # Run on local
 :
-  # : ${__MATERIALS:="${HOME}/Materials"}           # material dir
-  # echo "${__TGT}"
+  __DEBUG=1
+  __MATERIALS="${HOME}/Materials/dokuwiki"    # material dir
+  # install用tar.gzをtargetに転送(SCP)
+  # 設定用templateをtargetに転送(SCP)
+  #   dokuwiki
+  #     admin email
+  #     admin passwd
+  #   nginx
+  #     listen IP
+  #     listen Port
+  #     install DIR
+  #     Log filename
+  #     location name
+  #   phpfpm
+  #     prefix
+  #     user,groupe
+  [ "${__DEBUG}" ] && echo "TARGET HOST: ${__TGT}" 
+  [ "${__DEBUG}" ] && echo "MATERIAL DIR: ${__MATERIALS}" >&2
+
 }
 
 main(){ # Run on remote
-ls -l /
+  ls -l /
 }
 
 afterwords(){ # Run on local
